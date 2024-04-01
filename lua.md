@@ -627,3 +627,167 @@ if a or b and c and d then
     -- do something
 end
 ```
+
+## Multiline tables
+Elements should begin on the next line and the last line should contain only a closing bracket. Elements inside should be indented once.
+
+#### Good
+```lua
+local lst = { 1, 2, 3 }
+
+local lst2 = {
+    [ 1 ] = 1,
+    [ 2 ] = 2,
+    [ 3 ] = 3
+}
+
+local tbl = {
+    a = 1,
+    b = 2,
+    c = 3
+}
+
+local tbl2 = {
+    { name = "John", age = 30 },
+    { name = "Jane", age = 25 },
+    { name = "Bob", age = 40 }
+}
+```
+
+#### Bad
+```lua
+local lst = {
+    1,
+    2,
+    3
+}
+
+local lst2 = { [ 1 ] = 1, [ 2 ] = 2, [ 3 ] = 3 }
+
+local tbl = { a = 1, b = 2, c = 3 }
+
+local tbl2 = { { name = "John", age = 30 }, { name = "Jane", age = 25 }, { name = "Bob", age = 40 } }
+```
+
+## Multiline function calls
+Multiline function calls should follow the same guidelines as Multiline tables.
+#### Good
+```lua
+myFunc(
+    "First arg",
+    secondArg,
+    { third, arg }
+)
+```
+
+```lua
+myFunc( "First arg", secondArg, {
+    key = 1,
+    key2 = 2
+} )
+```
+
+```lua
+timer.Simple( 0, function()
+    -- do something
+end )
+```
+
+#### Bad
+```lua
+myFunc( "First arg",
+    secondArg, { third, arg } )
+```
+
+```lua
+myFunc( "First arg",
+    secondArg,
+    { third, arg } )
+```
+
+```lua
+myFunc( "First arg", secondArg, { third,
+arg } )
+```
+
+```lua
+timer.Simple( 0,
+    function()
+        -- do something
+    end )
+```
+
+```lua
+timer.Simple( 0, function() -- do something end )
+```
+
+## Return early from functions
+##### Good
+```lua
+function example()
+    if cond1 then return end
+    if cond2 then return end
+    if cond3 then return end
+
+    -- do something
+end
+```
+
+```lua
+function example()
+    if not ( cond1 or cond2 or cond3 ) then return end
+    -- do something
+end
+```
+
+#### Not too bad, but it adds an extra level of indentation, it's worth using if it's possible not to call `not`
+```lua
+function example()
+    if cond1 and cond2 and cond3 then
+        -- do something
+    end
+end
+```
+
+##### Bad, we don't need to make meaningless code pyramids
+```lua
+function example()
+    if cond1 then
+        if cond2 then
+            if cond3 then
+                -- do something
+            end
+        end
+    end
+end
+```
+
+## Never use semicolons
+Semicolons provide no functional value in Lua. While they can be used to delimit table items, a comma is preferred.
+#### Good
+```lua
+local str = "hello world"
+print( str )
+
+return str
+```
+
+#### Bad, this exclusively makes the code harder to read
+```lua
+local str = "hello world"; print( str );
+
+return str;
+```
+
+## Use existing constants where possible
+##### Good
+```lua
+local x = y * math.pi
+local radians = math.rad( deg )
+```
+
+#### Bad, the meaning of `3.142` may not be immediately clear. It also suffers a loss in precision compared to `math.pi`
+```lua
+local x = y * 3.142
+local radians = deg * ( 3.142 / 180 )
+```

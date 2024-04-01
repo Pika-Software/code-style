@@ -35,6 +35,11 @@ Designed to control code quality and standardization.
     - [General](./lua.md#general)
         - [Quotations](./lua.md#quotations)
         - [Redundant parenthesis](./lua.md#redundant-parenthesis)
+        - [Multiline tables](./lua.md#multiline-tables)
+        - [Multiline function calls](./lua.md#multiline-function-calls)
+        - [Return early from functions](./lua.md#return-early-from-functions)
+        - [Never use semicolons](./lua.md#never-use-semicolons)
+        - [Use existing constants where possible](./lua.md#use-existing-constants-where-possible)
 
 - [Yue](./yue.md)
     - [Import](./yue.md#import)
