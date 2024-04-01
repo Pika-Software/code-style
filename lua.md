@@ -544,8 +544,8 @@ local a, b, c = 1, ' ', ''
 
 #### Bad, different quotes are used interchangeably
 ```lua
-MsgN( "Hello", ' ', 'Wor"ld', "!" )
-local a, b, c = 1, ' ', "
+MsgN( "Hello", ' ', 'World', "!" )
+local a, b, c = 1, ' ', ""
 ```
 
 ## Redundant parenthesis
