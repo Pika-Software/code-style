@@ -19,7 +19,8 @@ if cond then
 end
 ```
 
-## Spaces around operators
+## Spacing around operators
+Spaces must be around operators, operators should not "stick" together.
 #### Good
 ```lua
 local x = a * b + c
@@ -30,7 +31,8 @@ local x = a * b + c
 local x = a* b+c
 ```
 
-## Spaces inside parentheses and curly braces if they contain content
+## Spacing inside parentheses
+Spaces must be inside parentheses and curly brackets if they contain content.
 #### Good
 ```lua
 local x = ( 3 * myFunc() ) + 5
@@ -42,7 +44,8 @@ local x = (3 * myFunc( )) + 5
 local data = {5, { }}
 ```
 
-## Spaces after commas
+## Spacing after commas
+Spaces must be after commas.
 #### Good
 ```lua
 myFunc( 10, { 3, 5 } )
@@ -53,7 +56,8 @@ myFunc( 10, { 3, 5 } )
 myFunc( 10,{ 3,5 } )
 ```
 
-## Spaces inside square brackets
+## Spacing inside square brackets
+Spaces must be inside square brackets.
 #### Good
 ```lua
 local value1 = tbl[ 5 ]
@@ -68,7 +72,8 @@ local value2 = tbl[5 * 3]
 tbl[value1 + value2] = value3
 ```
 
-## Single space after comment operators and before if not at start of line
+## Spacing in comments
+Single space after comment operators and before if not at start of line.
 #### Good
 ```lua
 -- This is a good comment
@@ -82,7 +87,8 @@ local a = 1-- This comment starts too close to the 3
 ```
 
 # Newlines
-## Never have more than 2 newlines
+## Newlines limits
+New lines should never have more than 2 empty new lines between them.
 #### Good
 ```lua
 local func1, func2, func3 = lib.a, lib2.b, lib3.c
@@ -106,7 +112,8 @@ if func1() and func2() then
 end
 ```
 
-## Top level blocks should have either 1 or 2 newlines between them
+## Top level blocks
+Top level blocks should have either 1 or 2 newlines between them.
 #### Good
 ```lua
 local func1, func2, func3 = lib.a, lib2.b, lib3.c
@@ -124,7 +131,8 @@ if func1() and func2() then
 end
 ```
 
-## Non top level blocks/lines should never have more than 1 newline between them
+## Nested blocks
+Non top level blocks/lines should never have more than 1 newline between them.
 #### Good
 ```lua
 function example( a, b, c )
@@ -146,7 +154,8 @@ function example( a, b, c )
 end
 ```
 
-## Returns should have one newline before them unless the codeblock is only one line
+## Returns
+Returns should have one newline before them unless the codeblock is only one line.
 #### Good
 ```lua
 function example1( a, b )
@@ -170,7 +179,8 @@ function example1( a, b )
 end
 ```
 
-## Code should be split into managable chunks using a single new line
+## Chunking
+Code should be split into managable chunks using a single new line.
 #### Good
 ```lua
 function example( a, b, c )
@@ -231,7 +241,8 @@ end
 ```
 
 # GLua Additions
-## Use only vanilla Lua operators
+## Operators
+Only vanilla Lua operators should be used in the code.
 #### Good
 ```lua
 if not b then
@@ -270,7 +281,8 @@ if a || b then
 end
 ```
 
-## Use only vanilla Lua comments
+## Comments
+Comments should be written in vanilla Lua style.
 #### Good
 ```lua
 -- This is a comment
@@ -307,7 +319,8 @@ local b = 2
 local c = 3
 ```
 
-## Don't use garry's `continue`
+## Continue
+Don't use garry's `continue`, which is a flawed implementation that [is prone to errors when used in repeat-until loops](https://wiki.facepunch.com/gmod/Specific_Operators).
 #### Good
 ```lua
 local result = 0
@@ -332,7 +345,7 @@ end
 print( result ) -- 25
 ```
 
-#### Bad, garry's `continue` is a flawed implementation that [is prone to errors when used in repeat-until loops](https://wiki.facepunch.com/gmod/Specific_Operators)
+#### Bad
 ```lua
 local result = 0
 for i = 1, 10 do
@@ -344,7 +357,8 @@ print( result ) -- 25
 ```
 
 # Naming conventions
-## Local variables and functions should always be written in [lowerCamelCase](https://en.wiktionary.org/wiki/CamelCase)
+## Local variables and functions
+Local variables and functions should always be written in [lowerCamelCase](https://en.wiktionary.org/wiki/CamelCase).
 #### Good
 ```lua
 local myVariable = "hello world"
@@ -365,7 +379,8 @@ end
 MyFunction() -- "hello world"
 ```
 
-## Global variables should be written in [PascalCase](https://en.wiktionary.org/wiki/Pascal_case)/[UpperCamelCase](https://en.wiktionary.org/wiki/CamelCase)
+## Global variables and functions
+Global variables should be written in [PascalCase](https://en.wiktionary.org/wiki/Pascal_case)/[UpperCamelCase](https://en.wiktionary.org/wiki/CamelCase).
 #### Good
 ```lua
 MyLittleGlobalVariable = 14
@@ -389,7 +404,8 @@ mylittleglobalfunction = function()
 end
 ```
 
-## Global library names should be written in [snake_case](https://en.wiktionary.org/wiki/snake_case)
+## Global library names
+Global library names should be written in [snake_case](https://en.wiktionary.org/wiki/snake_case).
 #### Good
 ```lua
 my_cool_library = {}
@@ -407,7 +423,8 @@ mycoollibrary = {}
 module( "mycoollibrary" )
 ```
 
-## Constants should be written in [SCREAMING_SNAKE_CASE](https://en.wiktionary.org/wiki/screaming_snake_case)
+## Constants
+Constants should be written in [SCREAMING_SNAKE_CASE](https://en.wiktionary.org/wiki/screaming_snake_case).
 #### Good
 ```lua
 ENUM1 = 0
@@ -424,4 +441,88 @@ enum2 = 1
 
 local localEnum1 = 2
 local localEnum2 = 3
+```
+
+## Table keys
+By default, table keys should be written in [snake_case](https://en.wiktionary.org/wiki/snake_case). The exception is library functions and values, they should be written in [PascalCase](https://en.wiktionary.org/wiki/Pascal_case)/[UpperCamelCase](https://en.wiktionary.org/wiki/CamelCase). Keys should not start with numbers or special symbols.
+#### Good
+```lua
+tbl.my_awesome_key = 1
+tbl["my_awesome_key2"] = 0
+
+my_cool_library.Key = "V293LCB5b3UgZGVjb2RlZCB0aGF0LCBjb25ncmF0dWxhdGlvbnMu"
+my_cool_library.Function = function() end
+```
+
+### Bad
+```lua
+tbl.MyAwesomeKey = 1
+tbl["my-awesome-key"] = 0
+
+my_cool_library.key = "V293LCB5b3UgZGVjb2RlZCB0aGF0LCBjb25ncmF0dWxhdGlvbnMu"
+my_cool_library.function = function() end
+```
+
+## Throwaway variables
+Use `_` as a variable to "throwaway" values that will not be used.
+#### Good
+```lua
+for _, value in ipairs( lst ) do
+    print( value )
+end
+
+for _, value in pairs( tbl ) do
+    print( value )
+end
+
+_, folders = file.Find( "*", "DATA" )
+print( folders )
+```
+
+#### Also good solution for functions that returns few arguments
+```lua
+print( select( 2, file.Find( "*", "DATA" ) ) )
+```
+
+#### Bad
+```lua
+-- index isn't used
+for index, value in ipairs( lst ) do
+    print( value )
+end
+
+-- key isn't used
+for key, value in pairs( tbl ) do
+    print( value )
+end
+
+-- files isn't used
+files, folders = file.Find( "*", "DATA" )
+print( folders )
+```
+
+## Hook naming
+Hook naming rules:
+- All hook names must be unique.
+- Hook names should not start with numbers or special symbols.
+- `[ Optional ]` Hook names must contain short phrase that describes the purpose of the hook.
+- `[ Tip ]` You can create a local variable with the addon name and use it as/in the hook name.
+#### Good
+```lua
+hook.Add( "EventName", "MyAddon", function() end )
+hook.Add( "OtherEventName", "MyAddon", function() end )
+hook.Add( "AnotherEventName", "MyAddon", function() end )
+hook.Add( "EventName", "MyAddon::Init", function() end )
+hook.Add( "EventName", "MyAddon::Player Search", function() end )
+```
+
+#### Bad
+```lua
+hook.Add( "EventName", "", function() end )
+hook.Add( "EventName", "__===!!!@22", function() end )
+hook.Add( "EventName", "Init", function() end )
+hook.Add( "EventName", "EventName", function() end )
+hook.Add( "EventName", "AnotherEventName", function() end )
+hook.Add( "EventName", "OtherAddon", function() end )
+hook.Add( "EventName", "OtherAddon::Init", function() end )
 ```

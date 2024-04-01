@@ -1,4 +1,4 @@
-# Files and folders creation guidelines
+# Files and folders naming guidelines
 This describes how file paths should look like for better readability and expandability.
 
 ## File paths should use [kebab-case](https://en.wiktionary.org/wiki/kebab_case)
