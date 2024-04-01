@@ -1,14 +1,6 @@
 # Lua code style guidelines
 Plagiarized from [CFC Style Guidelines](https://github.com/CFC-Servers/cfc_glua_style_guidelines)
 
-#
-camel_case - variables
-blaCase            - functions
-BlaCase
-
-func
-Func
-
 # Spacing
 ## Indentation
 Use 4 `spaces` are used as one `indent character`.
@@ -377,15 +369,24 @@ MyFunction() -- "hello world"
 #### Good
 ```lua
 MyLittleGlobalVariable = 14
+MyLittleGlobalFunction = function()
+    print( MyLittleGlobalVariable + 10 )
+end
 ```
 
 #### Bad
 ```lua
 my_little_global_variable = 14
+my_little_global_function = function()
+    print( my_little_global_variable + 10 )
+end
 ```
 
 ```lua
 mylittleglobalvariable = 14
+mylittleglobalfunction = function()
+    print( mylittleglobalvariable + 10 )
+end
 ```
 
 ## Global library names should be written in [snake_case](https://en.wiktionary.org/wiki/snake_case)
