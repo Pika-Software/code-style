@@ -526,3 +526,104 @@ hook.Add( "EventName", "AnotherEventName", function() end )
 hook.Add( "EventName", "OtherAddon", function() end )
 hook.Add( "EventName", "OtherAddon::Init", function() end )
 ```
+
+# General
+## Quotations
+You may use single or double quotes, but be consistent.
+#### Good with double quotes
+```lua
+MsgN( "Hello", " ", "World", "!" )
+local a, b, c = 1, " ", ""
+```
+
+#### Good with single quotes
+```lua
+MsgN( 'Hello', ' ', 'World', '!' )
+local a, b, c = 1, ' ', ''
+```
+
+#### Bad, different quotes are used interchangeably
+```lua
+MsgN( "Hello", ' ', 'Wor"ld', "!" )
+local a, b, c = 1, ' ', "
+```
+
+## Redundant parenthesis
+You don't need to put meaningless brackets that don't do anything, except math operations and more complex logic.
+
+#### Good
+```lua
+if a == b then
+    -- do something
+end
+
+if not a then
+    -- do something
+end
+
+if b() then
+    -- do something
+end
+
+if a then
+    -- do something
+end
+
+if tbl.key then
+    -- do something
+end
+```
+
+#### Bad
+```lua
+if ( a == b ) then
+    -- do something
+end
+
+if ( not a ) then
+    -- do something
+end
+
+if ( b() ) then
+    -- do something
+end
+
+if ( a ) then
+    -- do something
+end
+
+if ( tbl.key ) then
+    -- do something
+end
+```
+
+### Redundant parenthesis may be used if it makes the order of operations clear. The author should use their best judgement
+It's important for the author to remember who their target audience is. Not every reader will be good with maths, and it can be helpful to make equations easy to follow.
+
+#### Good
+```lua
+local result = ( a * b ) + ( c * c )
+local result2 = ( ( a * 2 ) + ( b * 2 ) ) - ( c * 2 )
+
+if not ( a and b ) or c then
+    -- do something
+end
+
+if ( a or b ) and ( c and d ) then
+    -- do something
+end
+```
+
+#### Bad
+```lua
+local result = a * b + c * c
+local result2 = ( a * 2 + b * 2 ) - c * 2
+
+if not a or not b or c then
+    -- do something
+end
+
+if a or b and c and d then
+    -- do something
+end
+```

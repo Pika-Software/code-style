@@ -1,7 +1,8 @@
 # Files and folders naming guidelines
 This describes how file paths should look like for better readability and expandability.
 
-## File paths should use [kebab-case](https://en.wiktionary.org/wiki/kebab_case)
+## File path style
+File paths should use [kebab-case](https://en.wiktionary.org/wiki/kebab_case).
 #### Good
 ```lua
 -- garrysmod/addons/my-addon/lua/autorun/my-addon.lua
@@ -15,7 +16,8 @@ This describes how file paths should look like for better readability and expand
 -- garrysmod/addons/myaddon/lua/autorun/sh_addon.lua
 ```
 
-## Code initialization files must contain explicit indications of association with a particular code realm.
+## Code initialization files
+Code initialization files must contain explicit indications of association with a particular code realm.
 #### Good
 ```lua
 -- garrysmod/addons/my-addon/lua/my-addon/client/init.lua

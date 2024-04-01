@@ -1,6 +1,7 @@
 # Yue code style guidelines
 
-## Prefer to import when possible
+## Import
+Prefer to import when possible.
 #### Good
 ```yue
 import a, b, c from my_library
@@ -17,7 +18,8 @@ private await myFunc!
 local a, b, c = my_library.a, my_library.b, my_library.c
 ```
 
-## Prefer using brackets in complex function calls
+## Complex function calls
+Prefer using brackets in complex function calls.
 #### Good
 ```yue
 print string.format( arg1, arg2 ), string.match( str, pattern )
