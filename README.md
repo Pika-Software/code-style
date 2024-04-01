@@ -1,6 +1,33 @@
-# Pika Software code style guidelines
+# Our code style guidelines
 Designed to control code quality and standardization.
 
-## Languages
+# Glossary
 - [Lua](./lua.md)
+    - [Spacing](./lua.md#spacing)
+        - [Indentation](./lua.md#indentation)
+        - [Spaces around operators](./lua.md#spaces-around-operators)
+        - [Spaces inside parentheses and curly braces if they contain content](./lua.md#spaces-inside-parentheses-and-curly-braces-if-they-contain-content)
+        - [Spaces after commas](./lua.md#spaces-after-commas)
+        - [Spaces inside square brackets](./lua.md#spaces-inside-square-brackets)
+        - [Single space after comment operators and before if not at start of line](./lua.md#single-space-after-comment-operators-and-before-if-not-at-start-of-line)
+    - [Newlines](./lua.md#newlines)
+        - [Never have more than 2 newlines](./lua.md#never-have-more-than-2-newlines)
+        - [Top level blocks should have either 1 or 2 newlines between them](./lua.md#top-level-blocks-should-have-either-1-or-2-newlines-between-them)
+        - [Non top level blocks/lines should never have more than 1 newline between them](./lua.md#non-top-level-blocks-lines-should-never-have-more-than-1-newline-between-them)
+        - [Returns should have one newline before them unless the codeblock is only one line](./lua.md#returns-should-have-one-newline-before-them-unless-the-codeblock-is-only-one-line)
+        - [Code should be split into managable chunks using a single new line](./lua.md#code-should-be-split-into-managable-chunks-using-a-single-new-line)
+    - [GLua Additions](./lua.md#glua-additions)
+        - [Use only vanilla Lua operators](./lua.md#use-only-vanilla-lua-operators)
+        - [Use only vanilla Lua comments](./lua.md#use-only-vanilla-lua-comments)
+        - [Don't use garry's `continue`](./lua.md#don-t-use-garrys-continue)
+        - [Local variables and functions should always be written in lowerCamelCase](./lua.md#local-variables-and-functions-should-always-be-written-in-lowercamelcase)
+        - [Global variables should be written in PascalCase/UpperCamelCase](./lua.md#global-variables-should-be-written-in-pascalcaseuppercamelcase)
+        - [Global library names should be written in snake_case](./lua.md#global-library-names-should-be-written-in-snake_case)
+        - [Constants should be written in SCREAMING_SNAKE_CASE](./lua.md#constants-should-be-written-in-screaming_snake_case)
+
 - [Yue](./yue.md)
+    - [Prefer to import when possible](./yue.md#prefer-to-import-when-possible)
+    - [Prefer using brackets in complex function calls](./yue.md#prefer-using-brackets-in-complex-function-calls)
+- [Files/Folders](./files.md)
+    - [File paths should use kebab-case](./files.md#file-paths-should-use-kebab-case)
+    - [Code initialization files must contain explicit indications of association with a particular code realm.](./files.md#code-initialization-files-must-contain-explicit-indications-of-association-with-a-particular-code-realm)

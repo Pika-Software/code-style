@@ -315,7 +315,7 @@ local b = 2
 local c = 3
 ```
 
-## The use of continue should be avoided if possible
+## Don't use garry's `continue`
 #### Good
 ```lua
 local result = 0
@@ -348,5 +348,79 @@ for i = 1, 10 do
     result = result + i
 end
 
-print( result ) // 25
+print( result ) -- 25
+```
+
+# Naming conventions
+## Local variables and functions should always be written in [lowerCamelCase](https://en.wiktionary.org/wiki/CamelCase)
+#### Good
+```lua
+local myVariable = "hello world"
+local myFunction = function()
+    print( myVariable )
+end
+
+myFunction() -- "hello world"
+```
+
+#### Bad
+```lua
+local MyVariable = "hello world"
+local MyFunction = function()
+    print( MyVariable )
+end
+
+MyFunction() -- "hello world"
+```
+
+## Global variables should be written in [PascalCase](https://en.wiktionary.org/wiki/Pascal_case)/[UpperCamelCase](https://en.wiktionary.org/wiki/CamelCase)
+#### Good
+```lua
+MyLittleGlobalVariable = 14
+```
+
+#### Bad
+```lua
+my_little_global_variable = 14
+```
+
+```lua
+mylittleglobalvariable = 14
+```
+
+## Global library names should be written in [snake_case](https://en.wiktionary.org/wiki/snake_case)
+#### Good
+```lua
+my_cool_library = {}
+module( "my_cool_library" )
+```
+
+#### Bad
+```lua
+MyCoolLibrary = {}
+module( "MyCoolLibrary" )
+```
+
+```lua
+mycoollibrary = {}
+module( "mycoollibrary" )
+```
+
+## Constants should be written in [SCREAMING_SNAKE_CASE](https://en.wiktionary.org/wiki/screaming_snake_case)
+#### Good
+```lua
+ENUM1 = 0
+ENUM2 = 1
+
+local LOCAL_ENUM1 = 2
+local LOCAL_ENUM2 = 3
+```
+
+#### Bad
+```lua
+enum1 = 0
+enum2 = 1
+
+local localEnum1 = 2
+local localEnum2 = 3
 ```
