@@ -3,7 +3,7 @@
 ## Import
 Prefer to import when possible.
 #### Good
-```yue
+```moon
 import a, b, c from my_library
 ```
 
@@ -14,18 +14,18 @@ myFunc = async ->
 
 private await myFunc!
 #### Bad
-```yue
+```moon
 local a, b, c = my_library.a, my_library.b, my_library.c
 ```
 
 ## Complex function calls
 Prefer using brackets in complex function calls.
 #### Good
-```yue
+```moon
 print string.format( arg1, arg2 ), string.match( str, pattern )
 ```
 
 #### Bad
-```yue
+```moon
 print string.format( arg1, arg2 ), string.find str, pattern
 ```
