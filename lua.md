@@ -475,7 +475,7 @@ for _, value in pairs( tbl ) do
     print( value )
 end
 
-_, folders = file.Find( "*", "DATA" )
+local _, folders = file.Find( "*", "DATA" )
 print( folders )
 ```
 
