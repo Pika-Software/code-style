@@ -718,7 +718,7 @@ timer.Simple( 0,
 ```
 
 ```lua
-timer.Simple( 0, function() -- do something end )
+timer.Simple( 0, function() --[[do something]] end )
 ```
 
 ## Return early from functions
