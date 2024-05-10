@@ -779,7 +779,8 @@ local str = "hello world"; print( str );
 return str;
 ```
 
-## Use existing constants where possible
+## Constants
+Use existing constants where possible.
 ##### Good
 ```lua
 local x = y * math.pi
@@ -790,4 +791,128 @@ local radians = math.rad( deg )
 ```lua
 local x = y * 3.142
 local radians = deg * ( 3.142 / 180 )
+```
+
+## Function calls
+Functions must be called a minimum of times necessary for correct code execution. Also, I recommend to avoid calling universal functions if we know exactly what result we are expecting.
+#### Good
+```lua
+local textData1 = {
+    pos = { 50, 50 }
+}
+
+local textData2 = {
+    pos = { 50, 100 }
+}
+
+hook.Add( "HUDPaint", "Example", function()
+    local ply = LocalPlayer()
+    if ply and ply:IsValid() then
+        textData1.text = ply:Health()
+        textData2.text = ply:Armor()
+
+        draw.Text( textData1 )
+        draw.Text( textData2 )
+    end
+end )
+```
+
+#### Bad
+```lua
+hook.Add( "HUDPaint", "Example", function()
+    if IsValid( LocalPlayer() ) then
+        draw.Text( {
+            text = LocalPlayer():Health()
+            pos = { 50, 50 }
+        } )
+
+        draw.Text( {
+            text = LocalPlayer():Armor()
+            pos = { 50, 100 }
+        } )
+    end
+end )
+```
+
+# Numbers
+## Decimals
+Prefer decimals with leading 0s. Lua can understand when a number starts with `.`, but it looks very strange to humans and doesn't make sense.
+#### Good
+```lua
+local float = 0.125
+```
+
+#### Bad
+```lua
+local float = .125
+```
+
+## Starting zeros
+Prefer whole numbers without leading 0s. Lua numbers can technically be prefixed with as many 0s as you'd like, but in most cases it's completely unnecessary.
+#### Good
+```lua
+local factor = 1024
+```
+
+#### Bad, just why?
+```lua
+local factor = 000001024
+```
+
+## Trailing zeros
+Prefer decimals with no trailing 0s. There is no sense in adding zeros at the end of decimal numbers, please just don't do it.
+#### Good
+```lua
+local decimal = 0.2
+```
+
+#### Bad
+```lua
+local decimal = 0.200
+```
+
+## Negative numbers
+In cases where you need negation, use `-` instead of multiplying ( `*` ) by `-1`.
+#### Good
+```lua
+local a = -128
+local b = -a
+local c = Vector( b, b, b )
+local d = -c
+```
+
+#### Bad
+```lua
+local a = 128
+local b = a * -1
+local c = Vector( b, b, b )
+local d = c * -1
+```
+
+# Comments
+## Useless comments
+Good variable and function names can make comments unecessary. Strive for self commenting code. Save comments for complicated code that may not be clear on its own.
+#### Good
+```lua
+for _, ply in pairs( players ) do
+    print( ply )
+
+    if ply:Alive() then
+        ply:Kill
+    end
+end
+```
+
+#### Bad, the code explains itself without comments
+```lua
+-- loop through players
+for _, v in pairs( stuff ) do
+    -- print the player
+    print( v )
+
+    -- kill player if player is alive
+    if v:Alive() then
+        v:Kill()
+    end
+end
 ```
