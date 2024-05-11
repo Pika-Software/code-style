@@ -4,11 +4,14 @@
 Prefer to import when possible.
 #### Good
 ```moon
+import tostring, type from _G
 import a, b, c from my_library
 ```
 
 #### Bad
 ```moon
+tostring = tostring
+type = type
 a, b, c = my_library.a, my_library.b, my_library.c
 ```
 
