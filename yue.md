@@ -16,6 +16,28 @@ a, b, c = my_library.a, my_library.b, my_library.c
 :a, :b, :c = my_library
 ```
 
+## Table values
+If your table is not a library it is advisable to use `:` to extract the value if possible in order to shorten the code.
+#### Good
+```moon
+tbl = {
+    key: true
+}
+
+:key = tbl
+print key
+```
+
+#### Bad, is not a bad solution, it's just that in this case you are writing two `key` instead of one to get the value.
+```moon
+tbl = {
+    key: true
+}
+
+key = tbl.key
+print key
+```
+
 ## Complex function calls
 Prefer using brackets in complex function calls.
 #### Good
@@ -44,26 +66,4 @@ myFunc = async ( arg1, arg2, ... ) ->
 myFunc = async( ( arg1, arg2, ... ) ->
     print arg1, arg2, ...
 )
-```
-
-## Table values
-If your table is not a library it is advisable to use `:` to extract the value if possible in order to shorten the code.
-#### Good
-```moon
-tbl = {
-    key: true
-}
-
-:key = tbl
-print key
-```
-
-#### Bad, is not a bad solution, it's just that in this case you are writing two `key` instead of one to get the value.
-```moon
-tbl = {
-    key: true
-}
-
-key = tbl.key
-print key
 ```
