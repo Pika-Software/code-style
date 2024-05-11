@@ -51,9 +51,9 @@ Designed to control code quality and standardization.
 
 - [Yue](./yue.md)
     - [Import](./yue.md#import)
+    - [Table values](./yue.md#table-values)
     - [Complex function calls](./yue.md#complex-function-calls)
     - [Decorators](./yue.md#decorators)
-    - [Table values](./yue.md#table-values)
 
 - [Files/Folders](./files.md)
     - [File paths style](./files.md#file-path-style)
